@@ -30,6 +30,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 		
 		
+		<link rel="stylesheet" href="http://gavinhub.github.io/css/color.css">
+		
 	</head>
 
 	<body id="top">
@@ -37,7 +39,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <header id="header">
 	<a href="http://gavinhub.github.io/" class="image avatar"><img src="http://gavinhub.github.io/images/portrait.jpg" alt="" /></a>
 	
-		<h1><strong>I&rsquo;m Mingyang,</strong> a software engineer<br> with the deepest love of<br> the beautiful things in the world.</h1>
+		<h1><strong>I&rsquo;m Mingyang</strong> , a software engineer<br> with the deepest love of<br> the beautiful things in the world.</h1>
 	
 
 	
@@ -72,9 +74,58 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	<p>
 	    
 
-<h2 id="hello-hugo">Hello Hugo</h2>
-
 <p>This is really a good blog tool.</p>
+
+<pre><code class="language-python"># I can even show my code in this
+def foo(p1):
+    return p1 * 3
+</code></pre>
+
+<p>I love to write markdown pages.</p>
+
+<ul>
+<li>They are elegent.</li>
+<li>They are easy.</li>
+<li>And They are powful.</li>
+</ul>
+
+<p>Ok, what I wrote above is just a testing. Let me note down how to use this tool first, in case I foget&hellip;</p>
+
+<h2 id="what-is-hugo">What is Hugo?</h2>
+
+<p>In my word, hugo is a tool used to create a static blog easily and fast. When the blog is set up, we can create and edit posts by just editting the files on our machine. And after building the pages, we will get a static site appears in the <code>public</code> folder. By publishing this folder, you have your blog online!</p>
+
+<h2 id="hello-world">Hello world</h2>
+
+<ol>
+<li><p>Install Hugo</p>
+
+<p><code>brew update; brew install hugo</code></p></li>
+
+<li><p>Create site</p>
+
+<p><code>hugo new site &lt;SITENAME&gt;</code></p></li>
+
+<li><p>Create new post</p>
+
+<p><code>hugo new post/&lt;Filename.md&gt;</code></p></li>
+
+<li><p>Download theme and configure it</p>
+
+<p>Just go to <a href="http://themes.gohugo.io/">http://themes.gohugo.io/</a> and find a nice looking theme and clone the repo to the theme folder. And edit the <em>config.toml</em> file.</p></li>
+
+<li><p>Run Server</p>
+
+<p><code>hugo server</code></p></li>
+</ol>
+
+<h2 id="disqus-integration">Disqus Integration</h2>
+
+<p>So what we need is a disqusShortname which is a handler that you can create in the disqus website, and copy/paste it to <em>config.toml</em>.</p>
+
+<h2 id="publish-to-github-io-page">Publish to github.io Page</h2>
+
+<p>After running command <em>hugo</em>, the whole site will be generated in the public folder. Commit it in git, and you are good to go.</p>
 
 	</p>
 
@@ -120,9 +171,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 	<ul class="copyright">
 		
-		<li>&copy; John Doe</li>
+		<li>&copy; Hugo</li>
 		
-		<li>Design: <a href="//html5up.net">HTML5 UP</a></li>
+		<li>Theme: <a href="http://themes.gohugo.io/strata/">Strata</a></li>
 		
 	</ul>
 </footer>

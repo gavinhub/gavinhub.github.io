@@ -17,9 +17,58 @@
       <guid>http://gavinhub.github.io/post/helloHugo/</guid>
       <description>
 
-&lt;h2 id=&#34;hello-hugo&#34;&gt;Hello Hugo&lt;/h2&gt;
-
 &lt;p&gt;This is really a good blog tool.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# I can even show my code in this
+def foo(p1):
+    return p1 * 3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I love to write markdown pages.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;They are elegent.&lt;/li&gt;
+&lt;li&gt;They are easy.&lt;/li&gt;
+&lt;li&gt;And They are powful.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ok, what I wrote above is just a testing. Let me note down how to use this tool first, in case I foget&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-hugo&#34;&gt;What is Hugo?&lt;/h2&gt;
+
+&lt;p&gt;In my word, hugo is a tool used to create a static blog easily and fast. When the blog is set up, we can create and edit posts by just editting the files on our machine. And after building the pages, we will get a static site appears in the &lt;code&gt;public&lt;/code&gt; folder. By publishing this folder, you have your blog online!&lt;/p&gt;
+
+&lt;h2 id=&#34;hello-world&#34;&gt;Hello world&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install Hugo&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;brew update; brew install hugo&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create site&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;hugo new site &amp;lt;SITENAME&amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create new post&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;hugo new post/&amp;lt;Filename.md&amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Download theme and configure it&lt;/p&gt;
+
+&lt;p&gt;Just go to &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;http://themes.gohugo.io/&lt;/a&gt; and find a nice looking theme and clone the repo to the theme folder. And edit the &lt;em&gt;config.toml&lt;/em&gt; file.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Run Server&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;hugo server&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;disqus-integration&#34;&gt;Disqus Integration&lt;/h2&gt;
+
+&lt;p&gt;So what we need is a disqusShortname which is a handler that you can create in the disqus website, and copy/paste it to &lt;em&gt;config.toml&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;publish-to-github-io-page&#34;&gt;Publish to github.io Page&lt;/h2&gt;
+
+&lt;p&gt;After running command &lt;em&gt;hugo&lt;/em&gt;, the whole site will be generated in the public folder. Commit it in git, and you are good to go.&lt;/p&gt;
 </description>
     </item>
     
