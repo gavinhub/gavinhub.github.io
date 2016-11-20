@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mingyang</title>
+    <link>http://gavinhub.github.io/tags/tool/index.xml</link>
+    <description>Recent content on Mingyang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://gavinhub.github.io/tags/tool/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Pin Point Tool</title>
+      <link>http://gavinhub.github.io/post/a_pin_point_tool/</link>
+      <pubDate>Sat, 19 Nov 2016 21:42:08 -0800</pubDate>
+      
+      <guid>http://gavinhub.github.io/post/a_pin_point_tool/</guid>
+      <description>&lt;p&gt;I always wanted a tool that I can use to create points coordinates by simply clicking on a canvas. Today I made it in a web form.&lt;/p&gt;
+
+&lt;p&gt;The page should be available &lt;a href=&#34;http://gavinhub.github.io/projects/pinprint/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s is ugly but simple to use. Hope this is helpful.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

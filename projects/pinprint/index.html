@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pin Printer</title>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+      integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./javascript/jquery.svg.min.js"></script>
+    <script type="text/javascript" src="./javascript/draw.js"></script>
+    <link rel="stylesheet" href="./css/basic.css" >
+</head>
+<body>
+    <h1>Pin Printer</h1>
+    <div id="sample">
+        <div class="dummy"></div>
+        <div class="input_maxy">
+            <label for="input_maxy">max_y</label><input type="text" id="input_maxy" value='-122.054136246'></div>
+        <div class="input_miny">
+            <label for="input_miny">min_y</label><input type="text" id="input_miny" value='-122.147328259'></div>
+        <div class="input_minx">
+            <label for="input_minx">min_x</label><input type="text" id="input_minx" value='37.353702'></div>
+        <div class="input_maxx">
+            <label for="input_maxx">max_x</label><input type="text" id="input_maxx" value='37.430398'></div>
+        <button id='show_btn'>Create Canvas</button>
+    </div>
+    <div id="board">
+        <div id='canvas'></div>
+        <ul id='points'></ul>
+        <div class="tool">
+            <p>Import Points</p>
+            <textarea name="import" id="import" cols="30" rows="10" placeholder="e.g. x1, y1"></textarea> <br />
+            <button id="import_btn">Import!</button>
+        </div>     
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54516992-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
