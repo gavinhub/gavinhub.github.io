@@ -1,0 +1,3 @@
+[submodule "projects/pinprint"]
+	path = projects/pinprint
+	url = https://github.com/gavinhub/ClickPin.git
