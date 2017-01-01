@@ -7,7 +7,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 -->
 <html>
 	<head>
-		<title>Hello Hugo  &middot; Mingyang</title>
+		<title>Automate Jobs on a Mac &middot; Mingyang</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="author" content="Mingyang">
@@ -16,8 +16,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 		
 		<meta name="og:site_name" content="Mingyang">
-		<meta name="og:title" content="Hello Hugo ">
-		<meta name="og:url" content="http://gavinhub.github.io/post/helloHugo/">
+		<meta name="og:title" content="Automate Jobs on a Mac">
+		<meta name="og:url" content="http://gavinhub.github.io/post/automateOnMac/">
 		<meta name="og:image" content="http://gavinhub.github.io/images/portrait.jpg">
 		
 
@@ -60,10 +60,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		<div id="main">
 			
 	<span>
-		<h1>Hello Hugo </h1>
+		<h1>Automate Jobs on a Mac</h1>
 
 		<i class="fa fa-calendar"></i>&nbsp;&nbsp;
-<time datetime="2016-11-16 16:38:18 -0800 -0800">2016-11-16</time>&nbsp;&nbsp;
+<time datetime="2016-12-31 17:55:35 &#43;0800 CST">2016-12-31</time>&nbsp;&nbsp;
 
 
 
@@ -72,69 +72,46 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	</span>
 
 	<p>
-	    
+	    <p>While completing the data science project, I found I need to automate some job to help me crawl data from some API which should be invocated in a period style. So I investigated automation on a Mac.</p>
 
-<p>This is really a good blog tool.</p>
+<p>The tool we need for this is the <code>launchctl</code> command. And the files we will be playing with is the <code>plist</code> files under <code>~/Library/LaunchAgents</code>, which belongs to only the user but not the system (so it&rsquo;s run by the user). Each file under this folder is a describing doc for a job. We can specify the BASH script it runs and when to run.</p>
 
-<pre><code class="language-python"># I can even show my code in this
-def foo(p1):
-    return p1 * 3
-</code></pre>
-
-<p>I love to write markdown pages.</p>
-
-<ul>
-<li>They are elegent.</li>
-<li>They are easy.</li>
-<li>And They are powful.</li>
-</ul>
-
-<p>Ok, what I wrote above is just a testing. Let me note down how to use this tool first, in case I foget&hellip;</p>
-
-<h2 id="what-is-hugo">What is Hugo?</h2>
-
-<p>In my word, hugo is a tool used to create a static blog easily and fast. When the blog is set up, we can create and edit posts by just editting the files on our machine. And after building the pages, we will get a static site appears in the <code>public</code> folder. By publishing this folder, you have your blog online!</p>
-
-<h2 id="hello-world">Hello world</h2>
+<p>It&rsquo;s an XML file, so everything should be in the tags. When you forget what to write in a XML file, you can simply copy and paste another file in the same folder, and this is how I did it. Within the top level dict tag, the fileds are ordered by pairs of key/value. Let&rsquo;s just focus on the fileds we care:</p>
 
 <ol>
-<li><p>Install Hugo</p>
-
-<p><code>brew update; brew install hugo</code></p></li>
-
-<li><p>Create site</p>
-
-<p><code>hugo new site &lt;SITENAME&gt;</code></p></li>
-
-<li><p>Create new post</p>
-
-<p><code>hugo new post/&lt;Filename.md&gt;</code></p></li>
-
-<li><p>Download theme and configure it</p>
-
-<p>Just go to <a href="http://themes.gohugo.io/">http://themes.gohugo.io/</a> and find a nice looking theme and clone the repo to the theme folder. And edit the <em>config.toml</em> file.</p></li>
-
-<li><p>Run Server</p>
-
-<p><code>hugo server</code></p></li>
+<li>Label: this is the filename of the current file. It&rsquo;s suggested to be named in com.SOMEPACKAGE.plist</li>
+<li>ProgramArguments: that&rsquo;s the command been invocated when job is up</li>
+<li>StartCalendarInterval: the time when the command is run</li>
+<li>StandardOutPath/StandardErrorPath: the two files to accept error and std out.</li>
 </ol>
 
-<h2 id="disqus-integration">Disqus Integration</h2>
+<p>The simplies plist should have these five fields. Take care that the program arguments is an array, the each parameter exists in a single tag named <code>string</code></p>
 
-<p>So what we need is a disqusShortname which is a handler that you can create in the disqus website, and copy/paste it to <em>config.toml</em>.</p>
+<p>Commands:</p>
 
-<h2 id="publish-to-github-io-page">Publish to github.io Page</h2>
+<pre><code>launchctl load somejob.plist    # load the job
+launchctl list                  # list all jobs
+launchctl stop somejob.plist    # stop the job
+launchctl drop somejob.plist    # remove the job
+launchctl start somejob.plist   # test run the job once
+</code></pre>
 
-<p>After running command <em>hugo</em>, the whole site will be generated in the public folder. Commit it in git, and you are good to go.</p>
+<p>Things to remember:</p>
+
+<ul>
+<li>the command should be runnable, e.g. a script needs to have execute premission.</li>
+<li>load before start</li>
+<li>jobs under this folder will be load by the system everytime system is started. So remember to remove the file if you don&rsquo;t need it anymore.</li>
+</ul>
 
 	</p>
 
 	<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'gavinhubpage';
-    var disqus_identifier = 'http:\/\/gavinhub.github.io\/post\/helloHugo\/';
-    var disqus_title = 'Hello Hugo ';
-    var disqus_url = 'http:\/\/gavinhub.github.io\/post\/helloHugo\/';
+    var disqus_identifier = 'http:\/\/gavinhub.github.io\/post\/automateOnMac\/';
+    var disqus_title = 'Automate Jobs on a Mac';
+    var disqus_url = 'http:\/\/gavinhub.github.io\/post\/automateOnMac\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

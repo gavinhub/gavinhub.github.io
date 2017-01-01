@@ -6,8 +6,48 @@
     <description>Recent content in Post-rsses on Mingyang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Nov 2016 21:42:08 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 31 Dec 2016 17:55:35 +0800</lastBuildDate>
     <atom:link href="http://gavinhub.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Automate Jobs on a Mac</title>
+      <link>http://gavinhub.github.io/post/automateOnMac/</link>
+      <pubDate>Sat, 31 Dec 2016 17:55:35 +0800</pubDate>
+      
+      <guid>http://gavinhub.github.io/post/automateOnMac/</guid>
+      <description>&lt;p&gt;While completing the data science project, I found I need to automate some job to help me crawl data from some API which should be invocated in a period style. So I investigated automation on a Mac.&lt;/p&gt;
+
+&lt;p&gt;The tool we need for this is the &lt;code&gt;launchctl&lt;/code&gt; command. And the files we will be playing with is the &lt;code&gt;plist&lt;/code&gt; files under &lt;code&gt;~/Library/LaunchAgents&lt;/code&gt;, which belongs to only the user but not the system (so it&amp;rsquo;s run by the user). Each file under this folder is a describing doc for a job. We can specify the BASH script it runs and when to run.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s an XML file, so everything should be in the tags. When you forget what to write in a XML file, you can simply copy and paste another file in the same folder, and this is how I did it. Within the top level dict tag, the fileds are ordered by pairs of key/value. Let&amp;rsquo;s just focus on the fileds we care:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Label: this is the filename of the current file. It&amp;rsquo;s suggested to be named in com.SOMEPACKAGE.plist&lt;/li&gt;
+&lt;li&gt;ProgramArguments: that&amp;rsquo;s the command been invocated when job is up&lt;/li&gt;
+&lt;li&gt;StartCalendarInterval: the time when the command is run&lt;/li&gt;
+&lt;li&gt;StandardOutPath/StandardErrorPath: the two files to accept error and std out.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The simplies plist should have these five fields. Take care that the program arguments is an array, the each parameter exists in a single tag named &lt;code&gt;string&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;launchctl load somejob.plist    # load the job
+launchctl list                  # list all jobs
+launchctl stop somejob.plist    # stop the job
+launchctl drop somejob.plist    # remove the job
+launchctl start somejob.plist   # test run the job once
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Things to remember:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the command should be runnable, e.g. a script needs to have execute premission.&lt;/li&gt;
+&lt;li&gt;load before start&lt;/li&gt;
+&lt;li&gt;jobs under this folder will be load by the system everytime system is started. So remember to remove the file if you don&amp;rsquo;t need it anymore.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>A Pin Point Tool</title>
