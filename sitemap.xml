@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://gavinhub.github.io/</loc>
-    <lastmod>2016-12-31T17:55:35+08:00</lastmod>
+    <loc>http://gavinhub.github.io/post/git-bisect/</loc>
+    <lastmod>2017-04-15T23:16:55-07:00</lastmod>
   </url>
   
   <url>
@@ -19,6 +19,29 @@
   <url>
     <loc>http://gavinhub.github.io/post/helloHugo/</loc>
     <lastmod>2016-11-16T16:38:18-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://gavinhub.github.io/</loc>
+    <lastmod>2017-04-15T23:16:55-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://gavinhub.github.io/post/</loc>
+    <lastmod>2017-04-15T23:16:55-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://gavinhub.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://gavinhub.github.io/tags/tool/</loc>
+    <lastmod>2016-11-19T21:42:08-08:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

@@ -7,7 +7,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 -->
 <html>
 	<head>
-		<title>Hello Hugo  &middot; Mingyang</title>
+		<title>Git bisect &middot; Mingyang</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="author" content="Mingyang">
@@ -16,8 +16,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 		
 		<meta name="og:site_name" content="Mingyang">
-		<meta name="og:title" content="Hello Hugo ">
-		<meta name="og:url" content="http://gavinhub.github.io/post/helloHugo/">
+		<meta name="og:title" content="Git bisect">
+		<meta name="og:url" content="http://gavinhub.github.io/post/git-bisect/">
 		<meta name="og:image" content="http://gavinhub.github.io/images/portrait.jpg">
 		
 
@@ -60,81 +60,70 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		<div id="main">
 			
 	<span>
-		<h1>Hello Hugo </h1>
+		<h1>Git bisect</h1>
 
 		<i class="fa fa-calendar"></i>&nbsp;&nbsp;
-<time datetime="2016-11-16 16:38:18 -0800 PST">2016-11-16</time>&nbsp;&nbsp;
+<time datetime="2017-04-15 23:16:55 -0700 PDT">2017-04-15</time>&nbsp;&nbsp;
+
+
+    
+    
 
 
 
+   
+   
 
 
 	</span>
 
 	<p>
-	    
+	    <p>There must be sometime in your life when suddenly you find that your git project is broken by some
+commit. But how can you find that commit if it is hidden in the history?</p>
 
-<p>This is really a good blog tool.</p>
+<p>Fortunately, git has this awesome functionality called bisect. As explained in the name of the tool,
+<code>git bisect</code> is using binary <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">search</a> algorithm
+which helps you find the single evil commit that breaks your project. Now, I&rsquo;m going to show you how
+to use it.</p>
 
-<pre><code class="language-python"># I can even show my code in this
-def foo(p1):
-    return p1 * 3
+<p>First of all, you need a way to test if your project is working. A well composed test suite will be great.
+When the testing tool is ready, we can start a bisect session. To tell the tool where to begin, you should
+label at lest one good commit and one bad commit. Then, <code>bisect</code> will set you to a commit located in the
+middle of the given range. After doing your test, you can lable the current commit as good or bad. And the
+tool will set you to another commit according to your action. Now you can do your test and repeat previous
+steps for several iteration. And finally, bisect will find the commit that breaks your test.</p>
+
+<p>So, here is the commands you will be using,</p>
+
+<pre><code>git bisect start
+git bisect bad &lt;bad_commid_hash_id&gt;
+git bisect good &lt;good_commit_hash_id&gt;
+    
+# do your test and label the current commit like this
+git bisect good/bad
 </code></pre>
 
-<p>I love to write markdown pages.</p>
+<p>One bonus of bisect tool is it can run on itself if given a script to indecate good and bad. The script
+should have a correct exit code to tell if the test success. For example,</p>
 
-<ul>
-<li>They are elegent.</li>
-<li>They are easy.</li>
-<li>And They are powful.</li>
-</ul>
+<pre><code class="language-bash">#!/usr/bin/env bash
+mvn clean test
+       
+# Save above lines in a script,
+# start bisect and label one good and one bad as above steps, and run
+git bisect run test_script.sh
+</code></pre>
 
-<p>Ok, what I wrote above is just a testing. Let me note down how to use this tool first, in case I foget&hellip;</p>
-
-<h2 id="what-is-hugo">What is Hugo?</h2>
-
-<p>In my word, hugo is a tool used to create a static blog easily and fast. When the blog is set up, we can create and edit posts by just editting the files on our machine. And after building the pages, we will get a static site appears in the <code>public</code> folder. By publishing this folder, you have your blog online!</p>
-
-<h2 id="hello-world">Hello world</h2>
-
-<ol>
-<li><p>Install Hugo</p>
-
-<p><code>brew update; brew install hugo</code></p></li>
-
-<li><p>Create site</p>
-
-<p><code>hugo new site &lt;SITENAME&gt;</code></p></li>
-
-<li><p>Create new post</p>
-
-<p><code>hugo new post/&lt;Filename.md&gt;</code></p></li>
-
-<li><p>Download theme and configure it</p>
-
-<p>Just go to <a href="http://themes.gohugo.io/">http://themes.gohugo.io/</a> and find a nice looking theme and clone the repo to the theme folder. And edit the <em>config.toml</em> file.</p></li>
-
-<li><p>Run Server</p>
-
-<p><code>hugo server</code></p></li>
-</ol>
-
-<h2 id="disqus-integration">Disqus Integration</h2>
-
-<p>So what we need is a disqusShortname which is a handler that you can create in the disqus website, and copy/paste it to <em>config.toml</em>.</p>
-
-<h2 id="publish-to-github-io-page">Publish to github.io Page</h2>
-
-<p>After running command <em>hugo</em>, the whole site will be generated in the public folder. Commit it in git, and you are good to go.</p>
+<p>Have fun debuging!</p>
 
 	</p>
 
 	<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'gavinhubpage';
-    var disqus_identifier = 'http:\/\/gavinhub.github.io\/post\/helloHugo\/';
-    var disqus_title = 'Hello Hugo ';
-    var disqus_url = 'http:\/\/gavinhub.github.io\/post\/helloHugo\/';
+    var disqus_identifier = 'http:\/\/gavinhub.github.io\/post\/git-bisect\/';
+    var disqus_title = 'Git bisect';
+    var disqus_url = 'http:\/\/gavinhub.github.io\/post\/git-bisect\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

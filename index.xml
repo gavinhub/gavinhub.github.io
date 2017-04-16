@@ -6,8 +6,54 @@
     <description>Recent content on Mingyang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 31 Dec 2016 17:55:35 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Apr 2017 23:16:55 -0700</lastBuildDate>
     <atom:link href="http://gavinhub.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Git bisect</title>
+      <link>http://gavinhub.github.io/post/git-bisect/</link>
+      <pubDate>Sat, 15 Apr 2017 23:16:55 -0700</pubDate>
+      
+      <guid>http://gavinhub.github.io/post/git-bisect/</guid>
+      <description>&lt;p&gt;There must be sometime in your life when suddenly you find that your git project is broken by some
+commit. But how can you find that commit if it is hidden in the history?&lt;/p&gt;
+
+&lt;p&gt;Fortunately, git has this awesome functionality called bisect. As explained in the name of the tool,
+&lt;code&gt;git bisect&lt;/code&gt; is using binary &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_search_algorithm&#34;&gt;search&lt;/a&gt; algorithm
+which helps you find the single evil commit that breaks your project. Now, I&amp;rsquo;m going to show you how
+to use it.&lt;/p&gt;
+
+&lt;p&gt;First of all, you need a way to test if your project is working. A well composed test suite will be great.
+When the testing tool is ready, we can start a bisect session. To tell the tool where to begin, you should
+label at lest one good commit and one bad commit. Then, &lt;code&gt;bisect&lt;/code&gt; will set you to a commit located in the
+middle of the given range. After doing your test, you can lable the current commit as good or bad. And the
+tool will set you to another commit according to your action. Now you can do your test and repeat previous
+steps for several iteration. And finally, bisect will find the commit that breaks your test.&lt;/p&gt;
+
+&lt;p&gt;So, here is the commands you will be using,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git bisect start
+git bisect bad &amp;lt;bad_commid_hash_id&amp;gt;
+git bisect good &amp;lt;good_commit_hash_id&amp;gt;
+    
+# do your test and label the current commit like this
+git bisect good/bad
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;One bonus of bisect tool is it can run on itself if given a script to indecate good and bad. The script
+should have a correct exit code to tell if the test success. For example,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
+mvn clean test
+       
+# Save above lines in a script,
+# start bisect and label one good and one bad as above steps, and run
+git bisect run test_script.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Have fun debuging!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Automate Jobs on a Mac</title>
